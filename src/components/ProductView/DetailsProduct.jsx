@@ -12,9 +12,8 @@ function DetailsProduct() {
 		const fetchProductDetails = async () => {
 			setLoading(true);
 			try {
-				const response = await axios.get(
-					`http://localhost:5050/products/${productId}`
-				);
+				const endpoint = process.env.REACT_APP_URL_ENDPOINT;
+				const response = await axios.get(`${endpoint}/${productId}`);
 				setProduct(response.data);
 			} catch (error) {
 				console.error("Failed to fetch product details:", error);
