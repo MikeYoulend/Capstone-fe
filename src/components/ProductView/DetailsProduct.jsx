@@ -13,7 +13,7 @@ function DetailsProduct() {
 			setLoading(true);
 			try {
 				const endpoint = process.env.REACT_APP_URL_ENDPOINT;
-				const response = await axios.get(`${endpoint}/${productId}`);
+				const response = await axios.get(`${endpoint}/products/${productId}`);
 				setProduct(response.data);
 			} catch (error) {
 				console.error("Failed to fetch product details:", error);
