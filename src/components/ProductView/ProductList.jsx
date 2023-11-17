@@ -13,7 +13,8 @@ function ProductsList({ searchQuery }) {
 	useEffect(() => {
 		const fetchProducts = async () => {
 			try {
-				const response = await axios.get(`http://localhost:5050/products`, {
+				const endpoint = process.env.REACT_APP_URL_ENDPOINT;
+				const response = await axios.get(`${endpoint}/products`, {
 					params: {
 						category: selectedCategory,
 						subcategory: selectedSubcategory,
