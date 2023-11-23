@@ -15,10 +15,8 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post(
-				"http://localhost:5050/auth/login",
-				credentials
-			);
+			const endpoint = process.env.REACT_APP_URL_ENDPOINT;
+			const response = await axios.post(`${endpoint}/auth/login`, credentials);
 			localStorage.setItem("token", response.data.token);
 			navigate("/");
 		} catch (error) {

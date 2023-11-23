@@ -20,9 +20,10 @@ function Register() {
 	const onRegisterSubmit = async (e) => {
 		e.preventDefault();
 		try {
+			const endpoint = process.env.REACT_APP_URL_ENDPOINT;
 			const response = await axios.post(
-				"http://localhost:5050/auth/register",
-				formData
+				`${endpoint}/auth/register`,
+				credentials
 			);
 			setMessage("Registrazione avvenuta con successo!");
 			setErrors({});
