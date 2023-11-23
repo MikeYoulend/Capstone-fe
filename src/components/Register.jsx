@@ -21,10 +21,7 @@ function Register() {
 		e.preventDefault();
 		try {
 			const endpoint = process.env.REACT_APP_URL_ENDPOINT;
-			const response = await axios.post(
-				`${endpoint}/auth/register`,
-				credentials
-			);
+			const response = await axios.post(`${endpoint}/auth/register`, formData);
 			setMessage("Registrazione avvenuta con successo!");
 			setErrors({});
 			navigate("/login");
